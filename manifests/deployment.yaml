@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvcnetapp
+  labels:
+    app: mvcnetapp
+  namespace: namespace-workflow-1695198763346
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mvcnetapp
+  template:
+    metadata:
+      labels:
+        app: mvcnetapp
+    spec:
+      containers:
+        - name: mvcnetapp
+          image: codetoaks.azurecr.io/image-workflow-1695198763346:latest
+          ports:
+            - containerPort: 5000
